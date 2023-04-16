@@ -1,16 +1,15 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Banner from './components/Banner';
-import Carditem from './components/Carditem';
-import {getProducts} from './CallApis';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
 
 function App() {
-  const products=getProducts();
+  //const products=getProducts();
   return (
     <div>
-      {/* <Header/>
-       
-      <Footer/> */}
+      <Header/>
+       <Home/>
+      <Footer/>
     </div>
   );
 }
