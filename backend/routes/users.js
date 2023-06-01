@@ -22,9 +22,9 @@
          user_id = user_id.substring(0,4)+(parseInt(user_id.substring(4))+1)
     }
 
-    const { name, phone, password, email } = req.body;
+    const { name, phone, password, email ,role, address} = req.body;
     const user = new User({
-        name, phone, password, email, user_id:user_id
+        name, phone, password, email, user_id:user_id, role, address
     })
     const savedUser = await user.save();
     res.json(savedUser)

@@ -31,6 +31,11 @@ const CustomerSchema = new Schema({
     address:{
         type:String,
         required:false
+    },
+    active:{
+        type:String,
+        default:'Y',
+        required:true
     }   
   });
 

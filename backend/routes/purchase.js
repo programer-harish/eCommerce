@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 
 router.post('/stockPurchase', async (req, res) => {
     const purchase_master = await Purchase_master.find();
-    var pur_id;
+    var pur_id='';
 
     if (purchase_master == '') {
         pur_id = 'PUR1';
@@ -36,7 +36,6 @@ router.post('/stockPurchase', async (req, res) => {
         user_id: user_id
     })
     const savedPurMaster = await newPurMaster.save();
-    console.log(savedPurMaster)
     for (let i = 0; i < prod_ids.length; i++) {
         let product = await Product.find({ prod_id: prod_ids[i], cat_id: cat_ids[i] })
         //sale price fetched from products
@@ -53,10 +52,12 @@ router.post('/stockPurchase', async (req, res) => {
             pur_price: pur_prices[i],
         })
         const savedPurDetail=await newPurDetail.save();
-        console.log("Saved detail"+newPurDetail)
         product = await Product.updateOne({prod_id: prod_ids[i], cat_id: cat_ids[i]},{qnty:newQnty});
     }
-    res.json("Stock purchased")
+    if(pur_id!='')
+    res.json({success:true,message:"Stock saved",pur_id:pur_id});
+    else
+    res.json({success:false,message:"Error saving"});
 })
 
 module.exports = router;

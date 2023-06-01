@@ -8,14 +8,14 @@ const ProductSchema = new Schema({
         required:true,
         unique:true
     },
+    name:{
+        type:String,
+        required:true
+    },
     desc:{
         type:String,
         required:true
     },
-    pic:{
-        type:String,
-        required:true
-    }, 
     qnty:{
         type:Number,
         required:true
@@ -30,6 +30,11 @@ const ProductSchema = new Schema({
     },
     brand_name:{
         type:String,
+        required:true
+    },
+    active:{
+        type:String,
+        default:'Y',
         required:true
     }
   });

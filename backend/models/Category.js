@@ -12,10 +12,11 @@ const CategorySchema = new Schema({
         type:String,
         required:true
     },
-    plus_price:{
-        type:Number,
+    active:{
+        type:String,
+        default:'Y',
         required:true
-    }    
+    }
   });
 
   const Category = mongoose.model('category',CategorySchema);

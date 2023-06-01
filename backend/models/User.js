@@ -36,6 +36,11 @@ const UserSchema = new Schema({
         type:String,
         required:true,
         default:'purchase'
+    },
+    active:{
+        type:String,
+        default:'Y',
+        required:true
     }    
   });
 
